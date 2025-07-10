@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>Minecraft Server Control</title></head>
+<body>
+    <h1>Minecraft Server</h1>
+    <button onclick="startServer()">Start Server</button>
+    <p id="status"></p>
+
+    <script>
+        async function startServer() {
+            document.getElementById("status").innerText = "Starting server...";
+            const res = await fetch("https://YOUR_CLOUD_FUNCTION_URL", {
+                method: "POST"
+            });
+            const msg = await res.text();
+            document.getElementById("status").innerText = msg;
+        }
+    </script>
+</body>
+</html>
